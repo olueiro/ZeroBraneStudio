@@ -901,6 +901,10 @@ if ide:IsValidProperty(ide:GetMainFrame(), "EnableFullScreenView") then
   ide:GetMainFrame():EnableFullScreenView()
 end
 
+wx.wxGetApp().MacOpenFiles = function(files)
+  for _, filename in ipairs(files) do ide:ActivateFile(filename) end
+end
+
 wx.wxGetApp():MainLoop()
 
 -- There are several reasons for this call:
